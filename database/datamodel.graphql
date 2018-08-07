@@ -1,0 +1,7 @@
+type Game {
+  id: ID! @unique
+  createdAt: DateTime!
+  name: String!
+  console: String!
+  condition: String!
+}
