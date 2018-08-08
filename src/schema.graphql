@@ -1,4 +1,4 @@
-# can't import anything until we get our generated folder
+# import Game from "./generated/prisma.graphql"
 
 type Query {
   info: String!
