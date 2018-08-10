@@ -1,5 +1,6 @@
 {
-  "name": "prisma-now",
+  "name": "game-collection",
+  "alias": "game-collection",
   "type": "docker",
   "build": {
     "env": {

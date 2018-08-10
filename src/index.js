@@ -14,7 +14,7 @@ const server = new GraphQLServer({
     ...req,
     db: new Prisma({
       typeDefs: 'src/generated/prisma.graphql',
-      endpoint: 'https://weasel-beans.now.sh/',
+      endpoint: 'https://game-collection.now.sh/',
       secret: 'api-secret',
       debug: true,
     }),
