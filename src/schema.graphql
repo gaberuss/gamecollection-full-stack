@@ -5,10 +5,6 @@ type Query {
   inventory: [Game!]!
 }
 
-# once the prisma database has been created and deployed
-# uncomment and then create the Mutation file
-# then create the mutation resolvers
-
-# type Mutation {
-#   createGame(name: String!, console: String!, condition: String): Game!
-# }
+type Mutation {
+  createGame(name: String!, gameConsole: String!, condition: String!): Game!
+}

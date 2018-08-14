@@ -1,5 +1,5 @@
-# source: https://prisma-now.now.sh
-# timestamp: Tue Aug 07 2018 20:17:47 GMT-0400 (Eastern Daylight Time)
+# source: https://game-collection.now.sh
+# timestamp: Mon Aug 13 2018 19:56:15 GMT-0400 (Eastern Daylight Time)
 
 type AggregateGame {
   count: Int!
@@ -16,7 +16,7 @@ type Game implements Node {
   id: ID!
   createdAt: DateTime!
   name: String!
-  console: String!
+  gameConsole: String!
   condition: String!
 }
 
@@ -32,7 +32,7 @@ type GameConnection {
 
 input GameCreateInput {
   name: String!
-  console: String!
+  gameConsole: String!
   condition: String!
 }
 
@@ -52,8 +52,8 @@ enum GameOrderByInput {
   createdAt_DESC
   name_ASC
   name_DESC
-  console_ASC
-  console_DESC
+  gameConsole_ASC
+  gameConsole_DESC
   condition_ASC
   condition_DESC
   updatedAt_ASC
@@ -64,7 +64,7 @@ type GamePreviousValues {
   id: ID!
   createdAt: DateTime!
   name: String!
-  console: String!
+  gameConsole: String!
   condition: String!
 }
 
@@ -109,7 +109,7 @@ input GameSubscriptionWhereInput {
 
 input GameUpdateInput {
   name: String
-  console: String
+  gameConsole: String
   condition: String
 }
 
@@ -224,46 +224,46 @@ input GameWhereInput {
 
   """All values not ending with the given string."""
   name_not_ends_with: String
-  console: String
+  gameConsole: String
 
   """All values that are not equal to given value."""
-  console_not: String
+  gameConsole_not: String
 
   """All values that are contained in given list."""
-  console_in: [String!]
+  gameConsole_in: [String!]
 
   """All values that are not contained in given list."""
-  console_not_in: [String!]
+  gameConsole_not_in: [String!]
 
   """All values less than the given value."""
-  console_lt: String
+  gameConsole_lt: String
 
   """All values less than or equal the given value."""
-  console_lte: String
+  gameConsole_lte: String
 
   """All values greater than the given value."""
-  console_gt: String
+  gameConsole_gt: String
 
   """All values greater than or equal the given value."""
-  console_gte: String
+  gameConsole_gte: String
 
   """All values containing the given string."""
-  console_contains: String
+  gameConsole_contains: String
 
   """All values not containing the given string."""
-  console_not_contains: String
+  gameConsole_not_contains: String
 
   """All values starting with the given string."""
-  console_starts_with: String
+  gameConsole_starts_with: String
 
   """All values not starting with the given string."""
-  console_not_starts_with: String
+  gameConsole_not_starts_with: String
 
   """All values ending with the given string."""
-  console_ends_with: String
+  gameConsole_ends_with: String
 
   """All values not ending with the given string."""
-  console_not_ends_with: String
+  gameConsole_not_ends_with: String
   condition: String
 
   """All values that are not equal to given value."""
