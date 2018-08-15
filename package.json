@@ -1,12 +1,16 @@
 {
-  "name": "gamecollection-full-stack",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/gabrielruss/gamecollection-full-stack.git",
-  "author": "Gabriel <gabrielruss88@gmail.com>",
-  "license": "MIT",
+  "name": "tmp",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "graphql-yoga": "^1.15.1",
-    "prisma-binding": "^2.1.3"
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-scripts": "1.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
 }
