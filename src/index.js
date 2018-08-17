@@ -18,9 +18,9 @@ const client = new ApolloClient({
 })
 
 ReactDOM.render(
-  <ApolloClient client={client}>
+  <ApolloProvider client={client}>
     <App />
-  </ApolloClient>,
+  </ApolloProvider>,
   document.getElementById('root')
 )
 registerServiceWorker()
