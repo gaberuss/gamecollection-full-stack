@@ -64,6 +64,7 @@ class CreateGame extends Component {
         <Mutation
           mutation={CREATE_GAME_MUTATION}
           variables={{ name, gameConsole, condition }}
+          onCompleted={() => this.props.history.push('/')}
         >
           {createGameMutation => (
             <button

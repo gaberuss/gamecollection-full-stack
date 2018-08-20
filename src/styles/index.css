@@ -12,12 +12,16 @@ input {
   color: #828282;
 }
 
-.orange {
-  background-color: #ff6600;
+.top-border {
+  line-height: 2.25;
+}
+
+.blue {
+  background-color: rgb(63, 81, 181);
 }
 
 .background-gray {
-  background-color: rgb(246, 246, 239);
+  background-color: rgb(236, 239, 241);
 }
 
 .f11 {
