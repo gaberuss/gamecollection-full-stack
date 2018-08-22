@@ -7,4 +7,11 @@ type Query {
 
 type Mutation {
   createGame(name: String!, gameConsole: String!, condition: String!): Game!
+  updateGame(
+    id: ID!
+    name: String
+    gameConsole: String
+    condition: String
+  ): Game!
+  deleteGame(id: ID!): Game
 }
