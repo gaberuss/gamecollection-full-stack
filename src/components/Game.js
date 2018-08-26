@@ -2,6 +2,17 @@ import React, { Component } from 'react'
 import { Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
 
+const INVENTORY_QUERY = gql`
+  {
+    inventory {
+      id
+      createdAt
+      name
+      gameConsole
+      condition
+    }
+  }
+`
 const DELETE_GAME_MUTATION = gql`
   mutation DeleteGameMutation($id: ID!) {
     deleteGame(id: $id) {
@@ -31,7 +42,14 @@ class Game extends Component {
           <Mutation
             mutation={DELETE_GAME_MUTATION}
             variables={{ id }}
-            onCompleted={() => alert('game deleted')}
+            update={(cache, { data: { deleteGame } }) => {
+              const { inventory } = cache.readQuery({ query: INVENTORY_QUERY })
+              console.log(inventory)
+              cache.writeQuery({
+                query: INVENTORY_QUERY,
+                data: { inventory: inventory.filter(game => game.id !== id) },
+              })
+            }}
           >
             {deleteGameMutation => (
               <button className="delete-button" onClick={deleteGameMutation}>
