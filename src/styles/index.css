@@ -45,3 +45,19 @@ input {
   cursor: pointer;
   max-width: 250px;
 }
+
+.delete-button {
+  color: #b71c1c;
+  border: 0;
+  float: right;
+  height: 25px;
+  width: 25px;
+  background-color: rgb(255, 235, 238, 0);
+}
+
+.delete-button:hover {
+  color: #ffebee;
+  background-color: #b71c1c;
+  cursor: pointer;
+  border-radius: 50%;
+}

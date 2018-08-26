@@ -1,4 +1,13 @@
 import React, { Component } from 'react'
+import gql from 'graphql-tag'
+
+const DELETE_GAME = gql`
+  mutation DeleteGameMutation($id: String!) {
+    deleteGame(id: $id) {
+      id
+    }
+  }
+`
 
 class Game extends Component {
   render() {
@@ -16,6 +25,7 @@ class Game extends Component {
               Condition: {this.props.game.condition}
             </h3>
           </div>
+          <button className="delete-button">X</button>
         </article>
       </main>
     )
