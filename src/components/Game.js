@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
+import { Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
 
-const DELETE_GAME = gql`
-  mutation DeleteGameMutation($id: String!) {
+const DELETE_GAME_MUTATION = gql`
+  mutation DeleteGameMutation($id: ID!) {
     deleteGame(id: $id) {
       id
     }
@@ -11,6 +12,8 @@ const DELETE_GAME = gql`
 
 class Game extends Component {
   render() {
+    const { id } = this.props.game
+    console.log({ id })
     return (
       <main className="mw6 left">
         <article className="dt w-100 bb b--black-05 pb2 mt2" href="#0">
@@ -25,7 +28,17 @@ class Game extends Component {
               Condition: {this.props.game.condition}
             </h3>
           </div>
-          <button className="delete-button">X</button>
+          <Mutation
+            mutation={DELETE_GAME_MUTATION}
+            variables={{ id }}
+            onCompleted={() => alert('game deleted')}
+          >
+            {deleteGameMutation => (
+              <button className="delete-button" onClick={deleteGameMutation}>
+                X
+              </button>
+            )}
+          </Mutation>
         </article>
       </main>
     )
