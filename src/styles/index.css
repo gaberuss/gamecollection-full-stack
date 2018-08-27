@@ -61,3 +61,16 @@ input {
   cursor: pointer;
   border-radius: 50%;
 }
+
+.edit-button {
+  float: right;
+  background-color: rgb(255, 235, 238, 0);
+  border: 0;
+  height: 25px;
+  margin-right: 0.5em;
+}
+
+.edit-button:hover {
+  cursor: pointer;
+  background-color: rgba(13, 17, 43, 0.25);
+}
