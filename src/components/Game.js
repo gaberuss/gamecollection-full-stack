@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
+import { withRouter } from 'react-router'
 
 const INVENTORY_QUERY = gql`
   {
@@ -24,6 +25,7 @@ const DELETE_GAME_MUTATION = gql`
 class Game extends Component {
   render() {
     const { id, name, gameConsole, condition } = this.props.game
+    const { history } = this.props
     return (
       <main className="mw6 left">
         <article className="dt w-100 bb b--black-05 pb2 mt2" href="#0">
@@ -53,7 +55,7 @@ class Game extends Component {
           </Mutation>
           <button
             className="edit-button"
-            onClick={() => alert(`Editing item ${id}`)}
+            onClick={() => history.push(`/edit-game/${id}`)}
           >
             Edit
           </button>
@@ -63,4 +65,4 @@ class Game extends Component {
   }
 }
 
-export default Game
+export default withRouter(Game)
