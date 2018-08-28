@@ -17,6 +17,15 @@ const CREATE_GAME_MUTATION = gql`
     }
   }
 `
+const LOAD_GAME_QUERY = gql`
+  query LoadGameQuery($id: ID!) {
+    game(id: $id) {
+      name
+      console
+      condition
+    }
+  }
+`
 
 const inputStyling = 'input-reset ba b--black-20 pa2 mb2 db w-100'
 
@@ -25,6 +34,10 @@ class EditGame extends Component {
     name: '',
     gameConsole: '',
     condition: '',
+  }
+
+  componentDidMount() {
+    // load game from inventory with from match.params.id
   }
 
   handleChange = e => {

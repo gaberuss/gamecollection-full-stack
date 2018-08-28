@@ -4,7 +4,19 @@ function inventory(root, args, context, info) {
   return context.db.query.games({}, info)
 }
 
+function loadGameById(root, args, context, info) {
+  return context.db.query.game(
+    {
+      where: {
+        id: args.id,
+      },
+    },
+    info
+  )
+}
+
 module.exports = {
   info,
   inventory,
+  loadGameById,
 }
