@@ -55,6 +55,7 @@ class Game extends Component {
           </Mutation>
           <button
             className="edit-button"
+            // remove this and have the game loaded from cache
             onClick={() => history.push(`/edit-game/${id}`)}
           >
             Edit

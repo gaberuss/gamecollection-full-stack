@@ -8,14 +8,32 @@ import { ApolloClient } from 'apollo-client'
 import { createHttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { BrowserRouter } from 'react-router-dom'
+import { withClientState } from 'apollo-link-state'
+import { ApolloLink } from 'apollo-link'
+
+const cache = new InMemoryCache()
+
+const defaults = {
+  currentGame: {
+    __typeName: 'CurrentGame',
+    name: '',
+    gameConsole: '',
+    condition: '',
+  },
+}
+
+const stateLink = withClientState({
+  cache,
+  defaults,
+})
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:4000',
 })
 
 const client = new ApolloClient({
-  link: httpLink,
-  cache: new InMemoryCache(),
+  link: ApolloLink.from([stateLink, httpLink]),
+  cache,
 })
 
 ReactDOM.render(
