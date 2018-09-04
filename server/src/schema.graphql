@@ -3,7 +3,7 @@
 type Query {
   info: String!
   inventory: [Game!]!
-  loadGameById(id: ID!): Game!
+  game(id: ID!): Game!
 }
 
 type Mutation {

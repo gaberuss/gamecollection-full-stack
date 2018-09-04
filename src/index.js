@@ -14,8 +14,8 @@ import { ApolloLink } from 'apollo-link'
 const cache = new InMemoryCache()
 
 const defaults = {
-  currentGame: {
-    __typeName: 'CurrentGame',
+  inventory: {
+    __typename: 'Inventory',
     name: '',
     gameConsole: '',
     condition: '',
@@ -25,6 +25,7 @@ const defaults = {
 const stateLink = withClientState({
   cache,
   defaults,
+  resolvers: {},
 })
 
 const httpLink = createHttpLink({
