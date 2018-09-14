@@ -25,7 +25,9 @@ const defaults = {
 const stateLink = withClientState({
   cache,
   defaults,
-  resolvers: {},
+  resolvers: {
+    // I THINK I NEED TO PUT THE CLIENT ONLY QUERY HERE
+  },
 })
 
 const httpLink = createHttpLink({
