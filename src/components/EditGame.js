@@ -7,6 +7,7 @@ const inputStyling = 'input-reset ba b--black-20 pa2 mb2 db w-100'
 
 class EditGame extends Component {
   state = {
+    id: '',
     name: '',
     gameConsole: '',
     condition: '',
@@ -16,9 +17,14 @@ class EditGame extends Component {
     this.setState({ [e.target.name]: e.target.value })
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.game.id !== prevState.id) {
+      this.setState(this.props.game)
+    }
+  }
+
   render() {
     const { name, gameConsole, condition } = this.state
-
     return (
       <div className="flex flex-column mt3">
         <input
@@ -52,9 +58,9 @@ class EditGame extends Component {
 
 export default compose(
   graphql(LOAD_GAME_QUERY, {
-    props: ({ data: { inventory } }) => ({
-      inventory,
+    props: ({ data: { game } }) => ({
+      game,
     }),
-    // options: props => ({ variables: { id: props.match.params.id } }),
+    options: props => ({ variables: { id: props.match.params.id } }),
   })
 )(EditGame)

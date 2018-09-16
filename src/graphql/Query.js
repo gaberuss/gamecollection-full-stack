@@ -2,7 +2,8 @@ import gql from 'graphql-tag'
 
 export const LOAD_GAME_QUERY = gql`
   query {
-    inventory @client {
+    game(id: $id) @client {
+      id
       name
       gameConsole
       condition
