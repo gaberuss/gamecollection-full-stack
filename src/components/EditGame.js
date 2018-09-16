@@ -17,8 +17,14 @@ class EditGame extends Component {
     this.setState({ [e.target.name]: e.target.value })
   }
 
+  componentDidMount() {
+    if ((this.props.game || {}).id) {
+      this.setState(this.props.game)
+    }
+  }
+
   componentDidUpdate(prevProps, prevState) {
-    if (this.props.game.id !== prevState.id) {
+    if ((this.props.game || {}).id !== prevState.id) {
       this.setState(this.props.game)
     }
   }

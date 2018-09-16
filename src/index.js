@@ -13,14 +13,22 @@ import { ApolloLink } from 'apollo-link'
 
 const cache = new InMemoryCache()
 
-const defaults = {}
+const defaults = {
+  game: {
+    __typename: 'Game',
+    id: '',
+    name: '',
+    gameConsole: '',
+    condition: '',
+  },
+}
 
 const stateLink = withClientState({
   cache,
   defaults,
   resolvers: {
     Query: {
-      game: (_, { id }, { cache }, info) => {
+      game: (_, { id }, { cache }) => {
         return {
           __typename: 'Game',
           id,
