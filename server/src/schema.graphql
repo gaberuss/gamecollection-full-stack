@@ -1,4 +1,4 @@
-# import Game from "./generated/prisma.graphql"
+# import Game, GameSubscriptionPayload from "./generated/prisma.graphql"
 
 type Query {
   info: String!
@@ -15,4 +15,8 @@ type Mutation {
     condition: String
   ): Game!
   deleteGame(id: ID!): Game
+}
+
+type Subscription {
+  newGame: GameSubscriptionPayload
 }
