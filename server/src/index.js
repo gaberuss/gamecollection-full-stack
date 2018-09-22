@@ -11,7 +11,7 @@ const resolvers = {
   Subscription,
 }
 
-// testing pr with github
+// testing again
 
 const server = new GraphQLServer({
   typeDefs: './src/schema.graphql',
